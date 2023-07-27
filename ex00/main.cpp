@@ -4,12 +4,6 @@
 #include <vector>
 #include <list>
 #include <deque>
-#include <stack>
-#include <queue>
-#include <bitset>
-#include <array>
-#include <forward_list>
-#include <algorithm>
 
 void test0() {
 	// Arrays for different integer types
@@ -85,13 +79,9 @@ void test0() {
 
 void test1() {
 
-	// intArray and intVector are already defined as before
 	int intArray[] = {1, 2, 3, 4, 5};
 
-	// Create std::list<int> with the same elements
 	std::list<int> intList(intArray, intArray + 5);
-
-	// Create std::deque<int> with the same elements
 	std::deque<int> intDeque(intArray, intArray + 5);
 
 	// Example usage with intList
