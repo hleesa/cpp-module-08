@@ -5,6 +5,7 @@
 #include <deque>
 #include <set>
 #include <cstdlib>
+#include <ctime>
 
 void test0() {
 
