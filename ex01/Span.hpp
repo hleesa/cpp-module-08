@@ -6,6 +6,7 @@
 #include <exception>
 #include <limits>
 
+
 template<typename T>
 class Span {
 
@@ -54,14 +55,16 @@ public:
 			throw NoSpanFoundException();
 		}
 		T sSpan = std::numeric_limits<T>::max();
-		typename std::set<T>::const_iterator it;
+		typename std::set<T>::const_iterator it = container.begin();
 		typename std::set<T>::const_iterator next = it;
 		++next;
-		for (it = container.begin(); next != container.end(); ++it, ++next) {
+		while (next != container.end()) {
 			T candi = *next - *it;
 			if (candi < sSpan) {
 				sSpan = candi;
 			}
+			++it;
+			++next;
 		}
 		return sSpan;
 	}
