@@ -21,12 +21,12 @@ void test0() {
 	unsigned long ulongArray[] = {100000, 200000, 300000, 400000, 500000};
 
 	// Vectors for different integer types
-	std::vector<int> intVector(intArray, intArray + 5);
-	std::vector<short> shortVector(shortArray, shortArray + 5);
-	std::vector<long> longVector(longArray, longArray + 5);
-	std::vector<unsigned int> uintVector(uintArray, uintArray + 5);
-	std::vector<unsigned short> ushortVector(ushortArray, ushortArray + 5);
-	std::vector<unsigned long> ulongVector(ulongArray, ulongArray + 5);
+	const std::vector<int> intVector(intArray, intArray + 5);
+	const std::vector<short> shortVector(shortArray, shortArray + 5);
+	const std::vector<long> longVector(longArray, longArray + 5);
+	const std::vector<unsigned int> uintVector(uintArray, uintArray + 5);
+	const std::vector<unsigned short> ushortVector(ushortArray, ushortArray + 5);
+	const std::vector<unsigned long> ulongVector(ulongArray, ulongArray + 5);
 
 	// Example usage with intVector
 	std::vector<int>::const_iterator intIt = easyfind(intVector, 7);
@@ -83,7 +83,7 @@ void test0() {
 	}
 }
 
-void test1(){
+void test1() {
 
 	// intArray and intVector are already defined as before
 	int intArray[] = {1, 2, 3, 4, 5};
@@ -98,7 +98,8 @@ void test1(){
 	std::list<int>::const_iterator listIt = easyfind(intList, 3);
 	if (listIt != intList.end()) {
 		std::cout << "Value found in the intList: " << *listIt << std::endl;
-	} else {
+	}
+	else {
 		std::cout << "Value not found in the intList." << std::endl;
 	}
 
@@ -106,16 +107,30 @@ void test1(){
 	std::deque<int>::const_iterator dequeIt = easyfind(intDeque, 4);
 	if (dequeIt != intDeque.end()) {
 		std::cout << "Value found in the intDeque: " << *dequeIt << std::endl;
-	} else {
+	}
+	else {
 		std::cout << "Value not found in the intDeque." << std::endl;
 	}
+}
 
+void test2() {
+	int intArray[] = {1, 2, 3, 4, 5};
+	std::vector<int> intVector(intArray, intArray + 5);
+
+	std::vector<int>::iterator it = easyfind(intVector, 3);
+	if (it != intVector.end()){
+		std::cout << "Value found in the intVector: " << *it << std::endl;
+	}
+	else {
+		std::cout << "Value not found in the intVector." << std::endl;
+	}
 }
 
 int main() {
 
 //	test0();
-	test1();
+//	test1();
+//	test2();
 
 	return 0;
 }
