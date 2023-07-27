@@ -6,12 +6,10 @@
 #include <exception>
 #include <limits>
 
-
-template<typename T>
 class Span {
 
 private:
-	std::set <T> container;
+	std::set<long> container;
 	unsigned int maxSize;
 
 public:
@@ -39,27 +37,30 @@ public:
 	}
 
 	Span& operator=(const Span& other) {
-		container = other.container;
-		maxSize = other.maxSize;
+		if (this != &other) {
+			container = other.container;
+			maxSize = other.maxSize;
+		}
+		return *this;
 	}
 
-	void addNumber(T number) {
+	void addNumber(long number) {
 		if (container.size() >= maxSize) {
 			throw SizeFullException();
 		}
 		container.insert(number);
 	}
 
-	T shortestSpan() {
+	long shortestSpan() {
 		if (container.size() < 2) {
 			throw NoSpanFoundException();
 		}
-		T sSpan = std::numeric_limits<T>::max();
-		typename std::set<T>::const_iterator it = container.begin();
-		typename std::set<T>::const_iterator next = it;
+		long sSpan = std::numeric_limits<long>::max();
+		std::set<long>::const_iterator it = container.begin();
+		std::set<long>::const_iterator next = it;
 		++next;
 		while (next != container.end()) {
-			T candi = *next - *it;
+			long candi = *next - *it;
 			if (candi < sSpan) {
 				sSpan = candi;
 			}
@@ -69,13 +70,20 @@ public:
 		return sSpan;
 	}
 
-	T longestSpan() {
+	long longestSpan() {
 		if (container.size() < 2) {
 			throw NoSpanFoundException();
 		}
 		return *container.rbegin() - *container.begin();
 	}
-};
 
+	template<typename Iterator>
+	void add(Iterator begin, Iterator end) {
+		for (Iterator it = begin; it != end; ++it) {
+			addNumber(*it);
+		}
+		return;
+	}
+};
 
 #endif //CPP_HLEESA_SPAN_HPP
