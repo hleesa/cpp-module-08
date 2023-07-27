@@ -4,6 +4,7 @@
 
 #include <set>
 #include <exception>
+#include <limits>
 
 template<typename T>
 class Span {
@@ -52,10 +53,12 @@ public:
 		if (container.size() < 2) {
 			throw NoSpanFoundException();
 		}
+		T sSpan = std::numeric_limits<T>::max();
 		typename std::set<T>::const_iterator it;
-		T sSpan = 0; // 무슨 값?
-		for (it = container.begin(); next(it) != container.end(); ++it) { // prev, next X
-			T candi = *next(it) - *it;
+		typename std::set<T>::const_iterator next = it;
+		++next;
+		for (it = container.begin(); next != container.end(); ++it, ++next) {
+			T candi = *next - *it;
 			if (candi < sSpan) {
 				sSpan = candi;
 			}
@@ -67,7 +70,7 @@ public:
 		if (container.size() < 2) {
 			throw NoSpanFoundException();
 		}
-		return *prev(container.end()) - *container.begin(); // prev, next X
+		return *container.rbegin() - *container.begin();
 	}
 };
 
