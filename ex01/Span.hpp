@@ -15,67 +15,27 @@ private:
 public:
 	class SizeFullException : public std::exception {
 	public:
-		virtual const char* what() const throw() {
-			return "Container is full";
-		}
+		virtual const char* what() const throw();
 	};
 
 	class NoSpanFoundException : public std::exception {
 	public:
-		virtual const char* what() const throw() {
-			return "There is no span";
-		}
+		virtual const char* what() const throw();
 	};
 
-	Span() : maxSize(0) {
-	}
+	Span();
 
-	Span(unsigned int N) : maxSize(N) {
-	}
+	Span(unsigned int N);
 
-	Span(const Span& other) : container(other.container), maxSize(other.maxSize) {
-	}
+	Span(const Span& other);
 
-	Span& operator=(const Span& other) {
-		if (this != &other) {
-			container = other.container;
-			maxSize = other.maxSize;
-		}
-		return *this;
-	}
+	Span& operator=(const Span& other);
 
-	void addNumber(long number) {
-		if (container.size() >= maxSize) {
-			throw SizeFullException();
-		}
-		container.insert(number);
-	}
+	void addNumber(long number);
 
-	long shortestSpan() {
-		if (container.size() < 2) {
-			throw NoSpanFoundException();
-		}
-		long sSpan = std::numeric_limits<long>::max();
-		std::set<long>::const_iterator it = container.begin();
-		std::set<long>::const_iterator next = it;
-		++next;
-		while (next != container.end()) {
-			long candi = *next - *it;
-			if (candi < sSpan) {
-				sSpan = candi;
-			}
-			++it;
-			++next;
-		}
-		return sSpan;
-	}
+	long shortestSpan();
 
-	long longestSpan() {
-		if (container.size() < 2) {
-			throw NoSpanFoundException();
-		}
-		return *container.rbegin() - *container.begin();
-	}
+	long longestSpan();
 
 	template<typename Iterator>
 	void add(Iterator begin, Iterator end) {
