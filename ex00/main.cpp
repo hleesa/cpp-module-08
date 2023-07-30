@@ -103,24 +103,11 @@ void test1() {
 	}
 }
 
-void test2() {
-	int intArray[] = {1, 2, 3, 4, 5};
-	std::vector<int> intVector(intArray, intArray + 5);
-
-	std::vector<int>::iterator it = easyfind(intVector, 3);
-	if (it != intVector.end()){
-		std::cout << "Value found in the intVector: " << *it << std::endl;
-	}
-	else {
-		std::cout << "Value not found in the intVector." << std::endl;
-	}
-}
-
 int main() {
 
-//	test0();
+	test0();
 //	test1();
-//	test2();
 
+//    system("leaks easy");
 	return 0;
 }

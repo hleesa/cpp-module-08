@@ -12,7 +12,7 @@ DEPS = $(SRCS:.cpp=.d)
 -include $(DEPS)
 
 
-NAME = fewfunctions
+NAME = easy
 
 all: $(NAME)
 
