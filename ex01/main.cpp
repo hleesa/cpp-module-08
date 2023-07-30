@@ -3,7 +3,6 @@
 #include <vector>
 #include <list>
 #include <deque>
-#include <set>
 #include <cstdlib>
 #include <ctime>
 
@@ -106,9 +105,10 @@ void test2() {
 
 int main() {
 
-//	test0();
+	test0();
 //	test1();
-	test2();
+//	test2();
 
+//    system("leaks span");
 	return 0;
 }
