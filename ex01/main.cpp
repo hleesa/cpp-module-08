@@ -106,8 +106,8 @@ void test2() {
 int main() {
 
 	test0();
-//	test1();
-//	test2();
+	test1();
+	test2();
 
 //    system("leaks span");
 	return 0;

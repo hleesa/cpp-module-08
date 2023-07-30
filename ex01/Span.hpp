@@ -9,7 +9,7 @@
 class Span {
 
 private:
-	std::set<long> container;
+	std::multiset<long> container;
 	unsigned int maxSize;
 
 public:
