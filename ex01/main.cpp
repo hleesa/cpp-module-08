@@ -23,21 +23,23 @@ void test0() {
 void test1() {
 	Span sp = Span(5);
 
-	sp.addNumber(1);
+    for (int i = 0; i < 3; ++i) {
+        std::cout << "size: " << i << '\n';
 
-	try {
-		std::cout << sp.shortestSpan() << std::endl;
-	} catch (std::exception& e) {
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
-	try {
-		std::cout << sp.longestSpan() << std::endl;
-	} catch (std::exception& e) {
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
+        try {
+            std::cout << sp.shortestSpan() << std::endl;
+        } catch (std::exception& e) {
+            std::cout << "Exception: " << e.what() << std::endl;
+        }
+        try {
+            std::cout << sp.longestSpan() << std::endl;
+        } catch (std::exception& e) {
+            std::cout << "Exception: " << e.what() << std::endl;
+        }
+        std::cout << "\n\n";
+        sp.addNumber(i + 1);
+    }
 
-	sp.addNumber(2);
-	sp.addNumber(3);
 	sp.addNumber(4);
 	sp.addNumber(5);
 	try {
@@ -104,11 +106,13 @@ void test2() {
 }
 
 int main() {
+    std::cout << "\n\n";
 
 	test0();
-	test1();
-	test2();
+//	test1();
+//	test2();
 
 //    system("leaks span");
+    std::cout << "\n\n";
 	return 0;
 }
