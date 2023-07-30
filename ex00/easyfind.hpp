@@ -1,6 +1,6 @@
 
-#ifndef CPP_HLEESA_EASYFIND_HPP
-#define CPP_HLEESA_EASYFIND_HPP
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
 #include <iterator>
 #include <algorithm>
@@ -15,4 +15,4 @@ typename T::iterator easyfind(T& container, t target) {
 	return std::find(container.begin(), container.end(), target);
 }
 
-#endif //CPP_HLEESA_EASYFIND_HPP
+#endif //EASYFIND_HPP

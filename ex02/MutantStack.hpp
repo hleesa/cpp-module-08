@@ -1,6 +1,6 @@
 
-#ifndef CPP_HLEESA_MUTANTSTACK_HPP
-#define CPP_HLEESA_MUTANTSTACK_HPP
+#ifndef MUTANTSTACK_HPP
+#define MUTANTSTACK_HPP
 
 #include <deque>
 #include <stack>
@@ -22,4 +22,4 @@ public:
 
 };
 
-#endif //CPP_HLEESA_MUTANTSTACK_HPP
+#endif //MUTANTSTACK_HPP

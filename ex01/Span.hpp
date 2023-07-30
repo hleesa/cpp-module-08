@@ -1,6 +1,6 @@
 
-#ifndef CPP_HLEESA_SPAN_HPP
-#define CPP_HLEESA_SPAN_HPP
+#ifndef SPAN_HPP
+#define SPAN_HPP
 
 #include <set>
 #include <exception>
@@ -46,4 +46,4 @@ public:
 	}
 };
 
-#endif //CPP_HLEESA_SPAN_HPP
+#endif //SPAN_HPP
