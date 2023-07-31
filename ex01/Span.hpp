@@ -39,9 +39,10 @@ public:
 
 	template<typename Iterator>
 	void add(Iterator begin, Iterator end) {
-		for (Iterator it = begin; it != end; ++it) {
-			addNumber(*it);
-		}
+        container.insert(begin, end);
+        if (container.size() > maxSize) {
+            throw SizeFullException();
+        }
 		return;
 	}
 };
