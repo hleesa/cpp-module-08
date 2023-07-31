@@ -98,12 +98,33 @@ void test2(){
     return;
 }
 
+void test3() {
+    MutantStack<int> ms1;
+    ms1.push(1);
+    ms1.push(2);
+    ms1.push(3);
+
+    MutantStack<int>::reverse_iterator rit;
+    for (rit = ms1.rbegin(); rit != ms1.rend(); ++rit) {
+        std::cout << *rit << " ";
+    }
+    std::cout << "\n\n";
+
+    MutantStack<int>::const_reverse_iterator crit;
+    for (crit = ms1.rbegin(); crit != ms1.rend(); ++crit) {
+        std::cout << *crit << " ";
+    }
+    std::cout << "\n";
+    return;
+}
+
 int main() {
     std::cout << "\n\n";
 
     test0();
 //    test1();
 //    test2();
+//    test3();
 
 //    system("leaks mutant");
     std::cout << "\n\n";
