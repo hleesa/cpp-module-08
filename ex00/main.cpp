@@ -46,9 +46,9 @@ void test1() {
 
 	int intArray[] = {1, 2, 3, 4, 5};
 
-	std::list<int> intList(intArray, intArray + 5);
-	std::deque<int> intDeque(intArray, intArray + 5);
-    std::vector<int> intVector(intArray, intArray + 5);
+	const std::list<int> intList(intArray, intArray + 5);
+	const std::deque<int> intDeque(intArray, intArray + 5);
+    const std::vector<int> intVector(intArray, intArray + 5);
 
     // Example usage with intVector
     std::vector<int>::const_iterator intIt = easyfind(intVector, 7);
