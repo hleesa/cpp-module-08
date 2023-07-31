@@ -20,6 +20,7 @@ public:
 
     const_iterator end() const { return this->c.end(); }
 
+
 };
 
 #endif //MUTANTSTACK_HPP

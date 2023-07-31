@@ -70,11 +70,42 @@ void test1() {
     return;
 }
 
+void test2(){
+    MutantStack<int> ms1;
+
+    ms1.push(1);
+    ms1.push(2);
+    ms1.push(3);
+
+    MutantStack<int> ms2 = ms1;
+
+
+    MutantStack<int>::iterator it;
+    for (it = ms2.begin(); it != ms2.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << "\n\n";
+    while(!ms2.empty()) {
+        std::cout << ms2.top() << " ";
+        ms2.pop();
+    }
+    std::cout << "\n\n";
+
+    ms1 = ms2;
+    if (ms1.empty()) {
+        std::cout << "ms1 is empty\n";
+    }
+    return;
+}
+
 int main() {
+    std::cout << "\n\n";
 
     test0();
 //    test1();
+//    test2();
 
 //    system("leaks mutant");
+    std::cout << "\n\n";
     return 0;
 }
