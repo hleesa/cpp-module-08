@@ -28,12 +28,12 @@ void test1() {
 
         try {
             std::cout << sp.shortestSpan() << std::endl;
-        } catch (std::exception &e) {
+        } catch (std::exception& e) {
             std::cout << "Exception: " << e.what() << std::endl;
         }
         try {
             std::cout << sp.longestSpan() << std::endl;
-        } catch (std::exception &e) {
+        } catch (std::exception& e) {
             std::cout << "Exception: " << e.what() << std::endl;
         }
         std::cout << "\n\n";
@@ -44,15 +44,16 @@ void test1() {
     sp.addNumber(5);
     try {
         sp.addNumber(6);
-    } catch (std::exception &e) {
+    } catch (std::exception& e) {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 }
 
 template<typename Container>
-void fillRandomIntegers(Container &container, int size) {
+void fillRandomIntegers(Container& container, int size) {
     for (int i = 0; i < size; ++i) {
-        container.push_back(std::rand());
+        int sign = i % 2 == 0 ? -1 : 1;
+        container.push_back(std::rand() * sign);
     }
 }
 
@@ -81,7 +82,6 @@ void test3() {
     fillRandomIntegers(deq, 5000);
 
     /*
-    // Output the contents of the containers
     std::cout << "Vector: ";
     for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); ++it) {
         std::cout << *it << " ";
@@ -99,7 +99,7 @@ void test3() {
         std::cout << *it << " ";
     }
     std::cout << std::endl;
-    */
+*/
 
     Span sp = Span(15000);
     sp.add(vec.begin(), vec.end());
