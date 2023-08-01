@@ -2,11 +2,11 @@
 #include "Span.hpp"
 
 const char* Span::SizeFullException::what() const throw() {
-	return "Container is full";
+    return "Container is full";
 }
 
 const char* Span::NoSpanFoundException::what() const throw() {
-	return "There is no span";
+    return "There is no span";
 }
 
 Span::Span() : maxSize(0) {
@@ -19,42 +19,35 @@ Span::Span(const Span& other) : container(other.container), maxSize(other.maxSiz
 }
 
 Span& Span::operator=(const Span& other) {
-	if (this != &other) {
-		container = other.container;
-		maxSize = other.maxSize;
-	}
-	return *this;
+    if (this != &other) {
+        container = other.container;
+        maxSize = other.maxSize;
+    }
+    return *this;
 }
 
 void Span::addNumber(long number) {
-	if (container.size() >= maxSize) {
-		throw SizeFullException();
-	}
-	container.insert(number);
+    if (container.size() >= maxSize)
+        throw SizeFullException();
+    container.insert(number);
 }
 
 long Span::shortestSpan() {
-	if (container.size() < 2) {
-		throw NoSpanFoundException();
-	}
-	long sSpan = std::numeric_limits<long>::max();
-	std::set<long>::const_iterator it = container.begin();
-	std::set<long>::const_iterator next = it;
-	++next;
-	while (next != container.end()) {
-		long candi = *next - *it;
-		if (candi < sSpan) {
-			sSpan = candi;
-		}
-		++it;
-		++next;
-	}
-	return sSpan;
+    if (container.size() < 2)
+        throw NoSpanFoundException();
+    long sSpan = std::numeric_limits<long>::max();
+    std::set<long>::const_iterator it = container.begin();
+    std::set<long>::const_iterator next = it;
+    for (++next; next != container.end(); ++it, ++next) {
+        long candi = *next - *it;
+        if (candi < sSpan)
+            sSpan = candi;
+    }
+    return sSpan;
 }
 
 long Span::longestSpan() {
-	if (container.size() < 2) {
-		throw NoSpanFoundException();
-	}
-	return *container.rbegin() - *container.begin();
+    if (container.size() < 2)
+        throw NoSpanFoundException();
+    return *container.rbegin() - *container.begin();
 }
