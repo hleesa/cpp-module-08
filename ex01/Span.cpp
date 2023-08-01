@@ -36,8 +36,8 @@ long Span::shortestSpan() {
     if (container.size() < 2)
         throw NoSpanFoundException();
     long sSpan = std::numeric_limits<long>::max();
-    std::set<long>::const_iterator it = container.begin();
-    std::set<long>::const_iterator next = it;
+    std::multiset<long>::const_iterator it = container.begin();
+    std::multiset<long>::const_iterator next = it;
     for (++next; next != container.end(); ++it, ++next) {
         long candi = *next - *it;
         if (candi < sSpan)
