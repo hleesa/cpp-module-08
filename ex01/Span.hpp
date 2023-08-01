@@ -40,9 +40,8 @@ public:
 	template<typename Iterator>
 	void add(Iterator begin, Iterator end) {
         container.insert(begin, end);
-        if (container.size() > maxSize) {
+        if (container.size() > maxSize)
             throw SizeFullException();
-        }
 		return;
 	}
 };
