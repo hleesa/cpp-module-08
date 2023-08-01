@@ -39,6 +39,7 @@ void test1() {
     myList.push_back(2);
     myList.push_back(3);
 
+    std::cout << "list it:\n";
     std::list<int>::iterator it;
     for (it = myList.begin(); it != myList.end(); ++it) {
         std::cout << *it << " ";
@@ -49,18 +50,21 @@ void test1() {
     for (it = myList.begin(); it != myList.end(); ++it) {
         mstack.push(*it);
     }
+    std::cout << "mstack jt:\n";
     MutantStack<int>::iterator jt;
     for (jt = mstack.begin(); jt != mstack.end(); ++jt) {
         std::cout << *jt << " ";
     }
     std::cout << "\n\n";
 
+    std::cout << "list const it:\n";
     std::list<int>::const_iterator cit;
     for (cit = myList.begin(); cit != myList.end(); ++cit) {
         std::cout << *cit << " ";
     }
     std::cout << "\n\n";
 
+    std::cout << "mstack const jt:\n";
     MutantStack<int>::const_iterator cjt;
     for (cjt = mstack.begin(); cjt != mstack.end(); ++cjt) {
         std::cout << *cjt << " ";
@@ -79,8 +83,12 @@ void test2(){
 
     MutantStack<int> ms2 = ms1;
 
-
     MutantStack<int>::iterator it;
+    std::cout << "ms1:\n";
+    for (it = ms1.begin(); it != ms1.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << "\n\nms2:\n";
     for (it = ms2.begin(); it != ms2.end(); ++it) {
         std::cout << *it << " ";
     }
