@@ -26,6 +26,9 @@ Span& Span::operator=(const Span& other) {
     return *this;
 }
 
+Span::~Span() {
+}
+
 void Span::addNumber(long number) {
     if (container.size() >= maxSize)
         throw SizeFullException();

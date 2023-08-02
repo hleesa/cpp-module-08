@@ -31,6 +31,8 @@ public:
 
 	Span& operator=(const Span& other);
 
+    ~Span();
+
 	void addNumber(long number);
 
 	long shortestSpan();
